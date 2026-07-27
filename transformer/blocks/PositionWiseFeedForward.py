@@ -60,7 +60,7 @@ class PositionWiseFeedForward(nn.Module):
         Attributes:
             self.fc1(x): The input is first passed through the first linear layer (fc1).
             self.relu(...): The output of fc1 is then passed through a ReLU activation function. ReLU replaces all
-            negative values with zeros, introducing non-linearity into the model.
+            negative values with zeros, introducing non-linearity into the layers.
             self.fc2(...): The activated output is then passed through the second linear layer (fc2), producing the
             final output.
         Returns:
