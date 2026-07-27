@@ -20,6 +20,12 @@
         - The 1st linear layer expands the dimensionality of the input (512 → 2048).
         - The 2nd linear layer projects it back to the original dimension (2048 → 512).
         - Formula: FFN(x) = max(0,xW1 + b1)W2 + b2
+    - Positional Encoding
+      - The PositionalEncoding class adds information about the position of tokens within the sequence. Since the 
+      transformer model lacks inherent knowledge of the order of tokens (due to its self-attention mechanism), this 
+      class helps the model to consider the position of tokens in the sequence. The sinusoidal functions used are 
+      chosen to allow the model to easily learn to attend to relative positions, as they produce a unique and smooth 
+      encoding for each position in the sequence.
 - Reference
   - https://arxiv.org/pdf/1706.03762
   - https://www.datacamp.com/tutorial/building-a-transformer-with-py-torch
