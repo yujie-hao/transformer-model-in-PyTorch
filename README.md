@@ -14,7 +14,12 @@
       - Mechanism to focus on different parts of the input. Captures dependencies across different positions in the sequence
       - ![attention.png](assets/attention.png)
       - <em>[learn more](https://campus.datacamp.com/courses/large-language-models-llms-concepts/training-methodology-and-techniques?ex=8#)</em>
-    - 
+    - Position-wise Feed-Forward Networks (FFN)
+      - FFN is the neural network part that processes each token independently after attention.
+      - It consists of two linear transformations with a ReLU activation in between.
+        - The 1st linear layer expands the dimensionality of the input (512 → 2048).
+        - The 2nd linear layer projects it back to the original dimension (2048 → 512).
+        - Formula: FFN(x) = max(0,xW1 + b1)W2 + b2
 - Reference
   - https://arxiv.org/pdf/1706.03762
   - https://www.datacamp.com/tutorial/building-a-transformer-with-py-torch
