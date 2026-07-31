@@ -1,6 +1,7 @@
 from torch import nn
 
 from transformer.sub_layers.PositionWiseFeedForward import PositionWiseFeedForward
+from transformer.sub_layers.MultiHeadAttention import MultiHeadAttention
 
 
 class EncoderLayer(nn.Module):
@@ -49,13 +50,13 @@ class EncoderLayer(nn.Module):
             d_ff (int): The dimensionality of the inner layer in the position-wise feed-forward network.
             dropout (float): The dropout rate used for regularization for each of the layers.
         Attributes:
-            self.self_attn (nn.MultiheadAttention): Multi-headed attention layer.
+            self.self_attn (MultiHeadAttention): Multi-headed attention layer.
             self.feed_forward: Position-wise feed-forward network.
             self.norm1 (nn.LayerNorm) & self.norm2 (nn.LayerNorm): Layer normalization, applied to smooth the layer's
             input.
         """
         super(EncoderLayer, self).__init__()
-        self.self_attn = nn.MultiheadAttention(d_model, num_heads)
+        self.self_attn = MultiHeadAttention(d_model, num_heads)
         self.feed_forward = PositionWiseFeedForward(d_model, d_ff)
         self.norm1 = nn.LayerNorm(d_model)
         self.norm2 = nn.LayerNorm(d_model)

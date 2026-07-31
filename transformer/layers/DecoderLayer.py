@@ -1,5 +1,6 @@
 from torch import nn
 
+from transformer.sub_layers.MultiHeadAttention import MultiHeadAttention
 from transformer.sub_layers.PositionWiseFeedForward import PositionWiseFeedForward
 
 
@@ -33,8 +34,8 @@ class DecoderLayer(nn.Module):
             self.dropout: Dropout layer for regularization
         """
         super(DecoderLayer, self).__init__()
-        self.self_attn = nn.MultiheadAttention(d_model, num_heads)
-        self.cross_attn = nn.MultiheadAttention(d_model, num_heads)
+        self.self_attn = MultiHeadAttention(d_model, num_heads)
+        self.cross_attn = MultiHeadAttention(d_model, num_heads)
         self.feed_forward = PositionWiseFeedForward(d_model, d_ff)
         self.norm1 = nn.LayerNorm(d_model)
         self.norm2 = nn.LayerNorm(d_model)
