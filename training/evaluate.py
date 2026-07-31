@@ -11,6 +11,7 @@ unseen data, which is a critical measure of the model's generalization ability.
 
 # Puts the transformer model in evaluation mode. This is important because it turns off certain behaviors like dropout
 # that are only used during training.
+transformer.load_state_dict(torch.load("checkpoints/transformer.pt"))
 transformer.eval()
 
 # Generate random sample validation data
