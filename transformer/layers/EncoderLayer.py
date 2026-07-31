@@ -1,6 +1,6 @@
 from torch import nn
 
-from transformer.sub_layers import PositionWiseFeedForward
+from transformer.sub_layers.PositionWiseFeedForward import PositionWiseFeedForward
 
 
 class EncoderLayer(nn.Module):

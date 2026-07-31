@@ -12,7 +12,8 @@
   - < layers >
     - [ Encoder Layer ] </br>
     The EncoderLayer class defines a single layer of the transformer's encoder. It encapsulates a multi-head self-attention mechanism followed by the position-wise feed-forward neural network, with residual connections, layer normalization, and dropout applied as appropriate. Together, these components allow the encoder to capture complex relationships in the input data and transform them into a useful representation for downstream tasks. Typically, multiple such encoder layers are stacked to form the complete encoder part of a transformer model.
-    
+    - [ Decoder Layer ] </br>
+    The DecoderLayer class defines a single layer of the transformer's decoder. It consists of a multi-head self-attention mechanism, a multi-head cross-attention mechanism (that attends to the encoder's output), a position-wise feed-forward neural network, and the corresponding residual connections, layer normalization, and dropout layers. This combination enables the decoder to generate meaningful outputs based on the encoder's representations, taking into account both the target sequence and the source sequence. As with the encoder, multiple decoder layers are typically stacked to form the complete decoder part of a transformer model.
   - < sub layers >
     - [ Multi-Head Attention ]
       - Mechanism to focus on different parts of the input. Captures dependencies across different positions in the sequence
@@ -30,6 +31,11 @@
       class helps the model to consider the position of tokens in the sequence. The sinusoidal functions used are 
       chosen to allow the model to easily learn to attend to relative positions, as they produce a unique and smooth 
       encoding for each position in the sequence.
+- Processing steps
+  - Encoder layer
+    - refer to the EncoderLayer class for details
+  - Decoder layer
+    - refer to the DecoderLayer class for details
 - Reference
   - https://arxiv.org/pdf/1706.03762
   - https://www.datacamp.com/tutorial/building-a-transformer-with-py-torch
