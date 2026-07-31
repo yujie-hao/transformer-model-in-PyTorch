@@ -11,12 +11,12 @@
     - ![transformer_arch.png](assets/transformer_arch.png)
   - < Transformer Model >
     - The Transformer class brings together the various components of a Transformer model, including the embeddings, positional encoding, encoder layers, and decoder layers. It provides a convenient interface for training and inference, encapsulating the complexities of multi-head attention, feed-forward networks, and layer normalization. This implementation follows the standard Transformer architecture, making it suitable for sequence-to-sequence tasks like machine translation, text summarization, etc. Including masking ensures that the model adheres to the causal dependencies within sequences, ignoring padding tokens and preventing information leakage from future tokens. These sequential steps empower the Transformer model to efficiently process input sequences and produce corresponding output sequences.
-  - < layers >
+  - < Layers >
     - [ Encoder Layer ] </br>
     The EncoderLayer class defines a single layer of the transformer's encoder. It encapsulates a multi-head self-attention mechanism followed by the position-wise feed-forward neural network, with residual connections, layer normalization, and dropout applied as appropriate. Together, these components allow the encoder to capture complex relationships in the input data and transform them into a useful representation for downstream tasks. Typically, multiple such encoder layers are stacked to form the complete encoder part of a transformer model.
     - [ Decoder Layer ] </br>
     The DecoderLayer class defines a single layer of the transformer's decoder. It consists of a multi-head self-attention mechanism, a multi-head cross-attention mechanism (that attends to the encoder's output), a position-wise feed-forward neural network, and the corresponding residual connections, layer normalization, and dropout layers. This combination enables the decoder to generate meaningful outputs based on the encoder's representations, taking into account both the target sequence and the source sequence. As with the encoder, multiple decoder layers are typically stacked to form the complete decoder part of a transformer model.
-  - < sub layers >
+  - < Sub layers >
     - [ Multi-Head Attention ]
       - Mechanism to focus on different parts of the input. Captures dependencies across different positions in the sequence
       - ![attention.png](assets/attention.png)
