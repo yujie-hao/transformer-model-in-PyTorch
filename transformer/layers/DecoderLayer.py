@@ -5,20 +5,6 @@ from transformer.sub_layers.PositionWiseFeedForward import PositionWiseFeedForwa
 
 
 class DecoderLayer(nn.Module):
-    """
-    <Processing steps>
-      1. Self-attention on target sequence: The input x is processed through a self-attention mechanism.
-      2. Add and normalize (after self-attention): The output from self-attention is added to the original x, followed
-      by dropout and normalization using norm1.
-      3. Cross-attention with encoder output: The normalized output from the previous step is processed through a
-      cross-attention mechanism that attends to the encoder's output enc_output.
-      4. Add and normalize (after cross-attention): The output from cross-attention is added to the input of this stage,
-      followed by dropout and normalization using norm2.
-      5. Feed-forward network: The output from the previous step is passed through the feed-forward network.
-      6. Add and normalize (after feed-forward): The feed-forward output is added to the input of this stage, followed
-      by dropout and normalization using norm3.
-      7. Output: The processed tensor is returned as the output of the decoder layer.
-    """
     def __init__(self, d_model, num_heads, d_ff, dropout):
         """
         Args:

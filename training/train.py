@@ -33,9 +33,11 @@ the Adam optimizer and the cross-entropy loss function. The loss is printed for 
 training progress. In a real-world scenario, you would replace the random source and target sequences with actual data
 from your task, such as machine translation.
 
-NOTE: the targets here are random integers, so there is no pattern to learn. The loss will fall to roughly
-ln(tgt_vocab_size) = ln(5000) ~= 8.52 -- the loss of a model guessing uniformly -- and then stop improving. That is the
-expected outcome, not a bug. Run training/sanity_check_copy_task.py for a task the model can actually learn.
+NOTE: the targets here are random integers, so there is no general pattern to learn. But because the same 64 pairs are
+reused every epoch, the model can simply memorize them -- the training loss drops to ~2.7, well under the ~8.52
+(= ln 5000) loss of a model guessing uniformly. That number is memorization, not learning: evaluate.py scores ~8.8 on a
+fresh batch, i.e. worse than guessing. The gap between the two is what overfitting looks like.
+Run training/sanity_check_copy_task.py for a task the model can genuinely learn.
 """
 # Defines the loss function as cross-entropy loss. The ignore_index argument is set to 0, meaning the loss will not
 # consider targets with an index of 0 (typically reserved for padding tokens).

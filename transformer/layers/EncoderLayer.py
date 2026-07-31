@@ -14,33 +14,6 @@ class EncoderLayer(nn.Module):
 
     The class is defined as a subclass of PyTorch's nn.Module, which means it can be used as a building block for neural
     networks in PyTorch.
-
-    <Processing steps>
-      1. Self-attention: The input x is passed through the multi-head self-attention mechanism.
-      2. Add and normalize (after attention): The attention output is added to the original input (residual connection),
-        followed by dropout and normalization using norm1.
-      3. Feed-forward network: The output from the previous step is passed through the position-wise feed-forward
-        network.
-      4. Add and normalize (after feed-forward): Similar to step 2, the feed-forward output is added to the input of
-        this stage (residual connection), followed by dropout and normalization using norm2.
-      5. Output: The processed tensor is returned as the output of the encoder layer.
-
-    <What LayerNorm actually computes>
-      For each token vector independently, it normalizes across the d_model features — subtract that vector's mean,
-      divide by its standard deviation, then apply a learned scale γ and shift β:
-      for each token:  y = γ · (x - mean(x)) / sqrt(var(x) + ε) + β
-      With d_model=512, each nn.LayerNorm(512) owns 1024 learnable parameters (512 for γ, 512 for β).
-      Shape is unchanged: (batch, seq_len, 512) in, same out.
-
-    <Why two separate instances rather than one reused>
-      Because of those learned γ/β — the post-attention distribution and the post-FFN distribution are different, so
-      each needs its own. Writing self.norm1(...) twice would force them to share parameters, which is a real (and
-      subtle) modeling bug.
-
-    <Norm improvement>
-      - Post-norm: This is post-norm (norm applied after the residual add), matching the 2017 paper.
-      - Pre-norm: Most modern implementations use pre-norm — x = x + self.dropout(self.self_attn(self.norm1(x), ...)) —
-        which trains more stably at depth and typically doesn't need learning-rate warmup.
     """
     def __init__(self, d_model, num_heads, d_ff, dropout):
         """
