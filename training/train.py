@@ -72,3 +72,5 @@ for epoch in range(100):
     # Updates the model's parameters using the computed gradients.
     optimizer.step()
     print(f"Epoch: {epoch+1}, Loss: {loss.item()}")
+
+torch.save(transformer.state_dict(), "checkpoints/transformer.pt")
