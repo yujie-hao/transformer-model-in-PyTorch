@@ -1,7 +1,7 @@
 import torch
 from torch import nn, optim
 
-from transformer.Transformer import Transformer
+from transformer.transformer import Transformer
 
 """
 <Architecture sanity check: the copy task>

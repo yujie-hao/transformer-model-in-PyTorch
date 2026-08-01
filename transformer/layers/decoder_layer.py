@@ -1,7 +1,7 @@
 from torch import nn
 
-from transformer.sub_layers.MultiHeadAttention import MultiHeadAttention
-from transformer.sub_layers.PositionWiseFeedForward import PositionWiseFeedForward
+from transformer.sub_layers.multi_head_attention import MultiHeadAttention
+from transformer.sub_layers.position_wise_feed_forward import PositionWiseFeedForward
 
 
 class DecoderLayer(nn.Module):

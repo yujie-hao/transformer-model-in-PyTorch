@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from transformer.Transformer import Transformer
+from transformer.transformer import Transformer
 
 """
 <Shared configuration>

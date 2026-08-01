@@ -1,9 +1,9 @@
 import torch
 from torch import nn
 
-from transformer.layers.DecoderLayer import DecoderLayer
-from transformer.layers.EncoderLayer import EncoderLayer
-from transformer.sub_layers.PositionalEncoding import PositionalEncoding
+from transformer.layers.decoder_layer import DecoderLayer
+from transformer.layers.encoder_layer import EncoderLayer
+from transformer.sub_layers.positional_encoding import PositionalEncoding
 
 
 class Transformer(nn.Module):
