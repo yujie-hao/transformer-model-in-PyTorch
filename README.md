@@ -131,4 +131,4 @@ training/evaluate.py  ->  Validation loss: 8.821
 # Reference
   - https://arxiv.org/pdf/1706.03762
   - https://www.datacamp.com/tutorial/building-a-transformer-with-py-torch
-  - https://www.geeksforgeeks.org/deep-learning/transformer-using-pytorch/
+  - https://www.geeksforgeeks.org/deep-learning/transformer-using-pytorch
